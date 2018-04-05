@@ -1,18 +1,36 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <basic-input
+      :onChange="onInputChange" />
+    <p :class="['txt', 'msg']">{{ msg }}</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import BasicInput from '@/components/BasicInput.vue';
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    name: 'home',
+    components: {
+      BasicInput
+    },
+    data() {
+      return {
+        msg: ''
+      };
+    },
+    methods: {
+      onInputChange(newVal) {
+        this.msg = newVal;
+      }
+    }
+  };
 </script>
+<style scoped lang="less">
+  .txt {
+    font: 14px/1.2 normal Arial, Helvetica, sans-serif;
+  }
+  .msg {
+    color: rgb(233, 103, 42);
+  }
+</style>
