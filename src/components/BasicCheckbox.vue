@@ -1,18 +1,23 @@
 <template>
   <input
-    type="text"
-    value
-    v-model="value"
-    :name="name" />
+    type="checkbox"
+    ref="checkbox"
+    v-model="checked"
+    :name="name"
+    :value="value" />
 </template>
 
 <script>
   export default {
-    name: 'BasicInput',
+    name: 'BasicCheckbox',
     props: {
       name: {
         type: String,
         default: 'name'
+      },
+      value: {
+        type: String,
+        default: ''
       },
       onChange: {
         type: Function,
@@ -21,12 +26,12 @@
     },
     data() {
       return {
-        value: ''
+        checked: false
       };
     },
     watch: {
-      value(newVal) {
-        this.onChange(newVal);
+      checked(newVal) {
+        // this.onChange({ [this.value]: newVal });
       }
     }
   };
