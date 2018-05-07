@@ -31,8 +31,11 @@
     },
     watch: {
       checked(newVal) {
-        // this.onChange({ [this.value]: newVal });
+        this.onChange({ [this.value]: newVal });
       }
+    },
+    beforeUpdate() {
+      console.log('update!!!');
     }
   };
 </script>

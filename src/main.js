@@ -7,6 +7,10 @@ import 'buefy/lib/buefy.css';
 
 Vue.use(Buefy);
 Vue.config.productionTip = false;
+Vue.config.keyCodes = {
+  q: 113,
+  v: 118
+};
 
 new Vue({
   router,
